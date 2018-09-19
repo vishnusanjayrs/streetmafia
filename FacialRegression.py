@@ -48,8 +48,14 @@ class LFWDataset (Dataset)
         img = np.asarray(Image.open(image_file_path),dtype=np.float32)
 
         #rescale RGB pixel value from (0,255) to (-1,1)
-        img = (img/255)*2-1
+        scaled_img = (img/255)*2-1
 
-        img = img.crop((features[0],features[1],features[2],features[3]))
+        cropped_img = scaled_img.crop((features[0],features[1],features[2],features[3]))
+
+        h,w = cropped_img.shape[0],cropped_img.shape[1]
+
+
+
+
 
         
